@@ -80,3 +80,12 @@ variable "hostname_suffix_separator" {
   description = "Separator character to compose hostname when add_hostname_suffix is set to true."
   default     = "-"
 }
+
+variable "alias_ip_range" {
+  description = "(Optional) An array of alias IP ranges for this network interface. Can only be specified for network interfaces on subnet-mode networks."
+  type = list(object({
+    ip_cidr_range         = string
+    subnetwork_range_name = string
+  }))
+  default = []
+}
